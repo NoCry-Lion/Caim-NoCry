@@ -44,3 +44,10 @@ client.on("messageCreate", async (message) => {
 console.log("Token existe?", !!process.env.DISCORD_TOKEN);
 console.log("Tamanho:", process.env.DISCORD_TOKEN?.length);
 client.login(process.env.DISCORD_TOKEN);
+
+client.on("error", console.error);
+client.on("warn", console.warn);
+
+client.once("ready", () => {
+  console.log(Bot online como ${client.user.tag});
+});
